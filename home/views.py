@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse,redirect
+from django.shortcuts import render, redirect
 from .models import Task
 from .forms import TaskForm, UpdateForm
 
@@ -29,10 +29,10 @@ def edit(request, id=id):
     return render(request, 'edit.html', {'form': form})
 
 
-def completed(request, id):
+def completado(request, id):
     task = Task.objects.get(id=id)
-    if task.completed != True:
-        task.completed=True
+    if task.completado != True:
+        task.completado=True
         task.save()
         return redirect('home:home')
 
@@ -63,7 +63,8 @@ def filter_status(request, choice):
             form.save()
             return redirect('home:home')
 
-    tasks = Task.objects.filter(completed=choice)
+    tasks = Task.objects.filter(completado=choice)
     form = TaskForm()
     print(form)
     return render(request, 'home.html', {'tasks': tasks, 'form': form})
+    
