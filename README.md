@@ -1,5 +1,7 @@
 # Calendar
 
+Creas un directorio y dentro sigues los siguientes pasos:
+
 1. git clone https://github.com/Heaven-sFeel/Calendar.git
 
 2. cd app
