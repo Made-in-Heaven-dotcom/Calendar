@@ -5,7 +5,7 @@
       <h3 class="card-header bg-info p-3 m-2 text-white">Actualizar Tarea</h3>
       <form method="POST">
         {% csrf_token %} {{ form.as_p }}
-        <input type="submit" value="Actualizar" />
+        <input type="submit" class="btn btn-primary" value="Actualizar" />
       </form>
     </div>
   </div>
