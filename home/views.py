@@ -4,13 +4,13 @@ from .forms import TaskForm, UpdateForm
 
 
 def home(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('home:home')
 
-    tasks= Task.objects.all()
+    tasks = Task.objects.all()
     form = TaskForm()
     print(form)
     return render(request, 'home.html', {'tasks': tasks, 'form': form})
@@ -32,7 +32,7 @@ def edit(request, id=id):
 def completado(request, id):
     task = Task.objects.get(id=id)
     if task.completado != True:
-        task.completado=True
+        task.completado = True
         task.save()
         return redirect('home:home')
 
@@ -67,4 +67,3 @@ def filter_status(request, choice):
     form = TaskForm()
     print(form)
     return render(request, 'home.html', {'tasks': tasks, 'form': form})
-    
